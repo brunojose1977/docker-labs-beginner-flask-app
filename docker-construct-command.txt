@@ -1,0 +1,23 @@
+#construção da imgaem
+sudo docker build --tag my-flask-image .
+
+#construção do container
+clear &&
+sudo docker run --name my-flask -it -d -p 5000:5000 my-flask-image
+
+#Obtendo o IP do conteiner
+sudo docker inspect my-flask | grep IPAddress
+
+#Testando a aplicação
+curl 172.17.0.2:5000
+
+
+#destruição do container e das imagens
+sudo docker rm -f my-flask &&
+sudo docker rmi -f my-flask-image
+
+# New Deploy Command - complete cycle!
+
+sudo docker rm -f my-flask &&
+sudo docker build --tag my-flask-image . &&
+sudo docker run --name my-flask -it -d -p 5000:5000 my-flask-image

@@ -5,18 +5,13 @@ app = Flask(__name__)
 
 # list of cat images
 images = [
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr05/15/9/anigif_enhanced-buzz-26388-1381844103-11.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr01/15/9/anigif_enhanced-buzz-31540-1381844535-8.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr05/15/9/anigif_enhanced-buzz-26390-1381844163-18.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr06/15/10/anigif_enhanced-buzz-1376-1381846217-0.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr03/15/9/anigif_enhanced-buzz-3391-1381844336-26.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr06/15/10/anigif_enhanced-buzz-29111-1381845968-0.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr03/15/9/anigif_enhanced-buzz-3409-1381844582-13.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr02/15/9/anigif_enhanced-buzz-19667-1381844937-10.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr05/15/9/anigif_enhanced-buzz-26358-1381845043-13.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr06/15/9/anigif_enhanced-buzz-18774-1381844645-6.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr06/15/9/anigif_enhanced-buzz-25158-1381844793-0.gif",
-    "http://ak-hdl.buzzfed.com/static/2013-10/enhanced/webdr03/15/10/anigif_enhanced-buzz-11980-1381846269-1.gif"
+    "https://i.pinimg.com/564x/4b/6f/ec/4b6fec352ad65acf6c1265201432dfa1.jpg",
+    "https://p1.pxfuel.com/preview/667/127/593/cat-baby-kitten-cat-domestic-cat-baby-cat-pet-royalty-free-thumbnail.jpg",
+    "https://www.stockvault.net/data/2007/03/01/100489/thumb16.jpg",
+    "https://thumbs.dreamstime.com/b/four-cute-cats-20687192.jpg",
+    "https://thumbs.dreamstime.com/b/cute-cat-looking-up-to-sky-cut-cat-looking-up-to-sky-probably-some-birds-blurred-background-161011306.jpg",
+    "https://cdn.pixabay.com/photo/2017/03/01/13/58/cat-2108536_960_720.jpg",
+    "https://thumbs.dreamstime.com/b/four-cute-cats-20650677.jpg"
 ]
 
 @app.route('/')
@@ -24,5 +19,10 @@ def index():
     url = random.choice(images)
     return render_template('index.html', url=url)
 
+@app.route('/special')
+def special():
+    url = "https://thumbs.dreamstime.com/b/four-cute-cats-20650677.jpg"
+    return render_template('special.html', url=url)
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+        app.run(host="0.0.0.0")
